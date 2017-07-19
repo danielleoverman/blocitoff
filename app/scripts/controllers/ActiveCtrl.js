@@ -1,20 +1,22 @@
 (function() {
-    function HomeCtrl($scope, $firebaseArray) {
-        var ref = new Firebase("https://blocitoff-e4d94.firebaseio.com");
+    function ActiveCtrl($scope, $firebaseArray) {      
+        var ref = firebase.database().ref();
+        
         $scope.tasks = $firebaseArray(ref);
-
+        
         $scope.addTask = function() {
             var name = $scope.task; 
             $scope.tasks.$add({
             name: $scope.task,
             created_at: Firebase.ServerValue.TIMESTAMP,
-        });
+            status: 'active'
+            });
 
         $scope.task = "";
         };
+    }
 
     angular
         .module('blocitoff')
-        .controller('HomeCtrl', ['$scope', '$firebaseArray', HomeCtrl])
-    ;
+        .controller('ActiveCtrl', ['$scope', '$firebaseArray', ActiveCtrl])
 })();
