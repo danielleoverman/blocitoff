@@ -8,8 +8,6 @@
             var name = $scope.task; 
             $scope.tasks.$add({
             name: $scope.task,
-            created_at: Firebase.ServerValue.TIMESTAMP,
-            status: 'active'
             });
 
         $scope.task = "";
