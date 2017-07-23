@@ -6,11 +6,23 @@
         
         $scope.addTask = function() {
             var name = $scope.task; 
+            var created = $scope.createdAt;
             $scope.tasks.$add({
-            name: $scope.task,
+                name: $scope.task,
+                created: firebase.database.ServerValue.TIMESTAMP
             });
 
         $scope.task = "";
+        };
+
+        $scope.expiredTask = function(task) {
+           var createdTime = new Date();
+           if ((createdTime - task.created) >= 604800000){
+               return true;
+           } 
+           else {
+               return false;
+           }
         };
     }
 

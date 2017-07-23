@@ -1,3 +1,6 @@
+<nav class="fixed-nav-bar">
+      <div class="co-name"> BlocItOff </div>
+</nav>
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-8 app-content">
@@ -9,9 +12,9 @@
             <button class="btn btn-default pull-right" ng-click="addTask()">Add Next Task</button>
             <table class="table table-striped">
                 </br>
-                <tr ng-repeat="task in tasks | orderBy: 'created_at': true">
+                <tr ng-repeat="task in tasks | orderBy: 'created_at': true" ng-hide="expiredTask(task)">
                     </br>
-                    <td>{{ task.name }} <a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">x</a></td>
+                    <td>{{ task.name }} <a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">Delete</a></td>
                 </tr>
             </table>
         </div>
