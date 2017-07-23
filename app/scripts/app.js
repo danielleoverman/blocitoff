@@ -12,6 +12,13 @@
                 controller: 'ActiveCtrl as active',
                 templateUrl: '/templates/active.html'
             });
+        
+        $stateProvider
+            .state('history', {
+                url: '/history',
+                controller: 'HistoryCtrl as history',
+                templateUrl: '/templates/history.html'
+            });
     }
     
     angular

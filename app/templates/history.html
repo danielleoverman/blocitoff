@@ -4,15 +4,12 @@
       <a ui-sref="history"> Past Tasks </h1>
       <ui-view></ui-view>
 </nav>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-8 app-content">
             </br>
-            <h4>TASKS<h4>
-            <div class="form-group">
-                <input ng-model="task" id="taskInput" class="form-control" type="text" placeholder="Enter your task."></input>
-            </div>
-            <button class="btn btn-default pull-right" ng-click="addTask()">Add Next Task</button>
+            <h4>EXPIRED TASKS<h4>
             <table class="table table-striped">
                 </br>
                 <tr ng-repeat="task in tasks | orderBy: 'created_at': true" ng-hide="expiredTask(task)">
