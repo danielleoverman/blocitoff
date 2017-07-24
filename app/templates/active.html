@@ -1,23 +1,37 @@
-<nav class="fixed-nav-bar">
-      <div class="co-name"> BlocItOff </div>
-      <a ui-sref="active"> Active Tasks </h1> 
-      <a ui-sref="history"> Past Tasks </h1>
-      <ui-view></ui-view>
-</nav>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-8 app-content">
             </br>
-            <h4>TASKS<h4>
+            </br>
+          <div class="button-style">
+            <h1>MY ACTIVE TASKS<h1>
             <div class="form-group">
                 <input ng-model="task" id="taskInput" class="form-control" type="text" placeholder="Enter your task."></input>
+                <label for="prioritySelect">Select Your Priority: </label>
+                    <select name="singleSelect" ng-model="priority">
+                        <option value="high priority">High</option>
+                        <option value="medium priority">Medium</option>
+                        <option value="low priority">Low</option>
+                    </select>
+                </label>
+                <button class="btn btn-default" ng-click="addTask()">Add Next Task</button>
             </div>
-            <button class="btn btn-default pull-right" ng-click="addTask()">Add Next Task</button>
-            <table class="table table-striped">
-                </br>
+          </div>
+            <table class="task-table">
                 <tr ng-repeat="task in tasks | orderBy: 'created_at': true" ng-hide="expiredTask(task)">
-                    </br>
-                    <td>{{ task.name }} <a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">Delete</a></td>
+                    <td>{{ task.name }} {{task.priority}}<input type="checkbox" ng-model="checkVal" ng-true-value="true" ng-false-value="false"><a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">Delete</a></td>
                 </tr>
             </table>
         </div>

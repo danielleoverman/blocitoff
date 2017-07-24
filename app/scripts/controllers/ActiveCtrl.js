@@ -7,9 +7,11 @@
         $scope.addTask = function() {
             var name = $scope.task; 
             var created = $scope.createdAt;
+            var priority = $scope.priority
             $scope.tasks.$add({
                 name: $scope.task,
-                created: firebase.database.ServerValue.TIMESTAMP
+                created: firebase.database.ServerValue.TIMESTAMP,
+                priority: $scope.priority
             });
 
         $scope.task = "";
