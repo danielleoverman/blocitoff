@@ -21,7 +21,7 @@
 
         $scope.expiredTask = function(task) {
            var createdTime = new Date();
-           if ((createdTime - task.created) >= 60000){
+           if ((createdTime - task.created) >= 604800000){
                return true;
            } 
            else {
