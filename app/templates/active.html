@@ -9,31 +9,43 @@
 </br>
 </br>
 </br>
+</br>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-8 app-content">
             </br>
             </br>
+          <p> Check tasks off as you complete them. Tasks automatically expire after 7 days. </p>
           <div class="button-style">
             <h1>MY ACTIVE TASKS<h1>
             <div class="form-group">
-                <input ng-model="task" id="taskInput" class="form-control" type="text" placeholder="Enter your task."></input>
+                <input ng-model="task" id="taskInput" class="form-control" type="text" placeholder="Enter your task description."></input>
                 <label for="prioritySelect">Select Your Priority: </label>
                     <select name="singleSelect" ng-model="priority">
-                        <option value="high priority">High</option>
-                        <option value="medium priority">Medium</option>
-                        <option value="low priority">Low</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
                     </select>
                 </label>
-                <button class="btn btn-default" ng-click="addTask()">Add Next Task</button>
+                <button class="btn btn-default" ng-click="addTask()">Add</button>
             </div>
           </div>
-            <table class="task-table">
-                <tr ng-repeat="task in tasks | orderBy: 'created_at': true" ng-hide="expiredTask(task)">
-                    <td>{{ task.name }} {{task.priority}}<input type="checkbox" ng-model="checkVal" ng-true-value="true" ng-false-value="false"><a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">Delete</a></td>
+          <table class="task-table" style="width: 100%">
+                <tr>
+                    <th> Task Description </th>
+                    <th> Priority </th>
+                    <th> Completed </th> 
+                    <th> </th>
                 </tr>
-            </table>
+                <tr ng-repeat="task in tasks | orderBy: 'created_at': true" ng-show="task.complete === false" ng-hide="expiredTask(task) || task.complete === true">
+                    <td>{{ task.name }}</td>
+                    <td>{{task.priority}}</td>
+                    <td><input type="checkbox" ng-model="task.complete" ng-change="completedTask(task)"></td>
+                    <td> <a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">Delete Task</a> </td>
+                </tr>
+          </table>
         </div>
     </div>
 </div> 
+

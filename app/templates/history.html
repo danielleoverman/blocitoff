@@ -6,15 +6,41 @@
 </br>
 </br>
 </br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 <div class="container-fluid">
     <div class="row">
         <div class="button-style">
-          <h1>Completed and Expired Tasks</h1>
-            <table class="table table-striped">
-                <tr ng-repeat="task in tasks | orderBy: 'created_at': true" ng-hide="expiredTask(task)">
-                    <td>{{ task.name }} <a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">Delete</a></td>
+          <h1>Completed Tasks</h1>        
+            <table class="task-table" style="width: 100%">
+                <tr>
+                    <th> Task Description </th>
+                    <th> Priority </th>
+                    <th> </th>
+                </tr>
+                <tr ng-repeat="task in tasks | orderBy: 'created_at': true" ng-show="task.complete === true">
+                    <td>{{ task.name }}</td>
+                    <td>{{task.priority}}</td>
+                    <td> <a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">Delete Task</a> </td>
                 </tr>
             </table>
-        </div>
+          <h1>Expired Tasks</h1>        
+            <table class="task-table" style="width: 100%">
+                <tr>
+                    <th> Task Description </th>
+                    <th> Priority </th>
+                    <th> </th>
+                </tr>
+                <tr ng-repeat="task in tasks | orderBy: 'created_at': true" ng-show="task.complete === false" ng-show="expiredTask(task)">
+                    <td>{{ task.name }}</td>
+                    <td>{{task.priority}}</td>
+                    <td> <a class="btn btn-default pull-right btn-xs" href="#" role="button" ng-click="tasks.$remove(task)">Delete Task</a> </td>
+                </tr>
+            </table>
+        </div>        
     </div>
 </div> 

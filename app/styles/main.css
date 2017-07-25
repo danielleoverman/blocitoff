@@ -1,3 +1,7 @@
+* {
+    font-family: 'Amatic SC', cursive;
+
+}
 .co-name{
     font-family: 'Amatic SC', cursive;
     text-align: center;
@@ -16,15 +20,11 @@ nav {
   font-size: 25px;
 }
 
-.task-table {
-    background-color: #96FBE4;
-    font-family: 'Amatic SC', cursive;
-    font-size: 30px;
-    padding-left: 5px;
-}
 
 .form-group {
     text-align: center;    
+    font-size: 25px;
+
 }
 
 .button-style {
@@ -38,4 +38,46 @@ nav {
     text-align: left;
     padding: 14px 16px;
 
+}
+
+select {
+  background-color: #FDF69A;    
+  height: 35px;
+  width: 10%;
+  font-size: 20px;
+}
+
+input {
+  background-color: #FDF69A;    
+  height: 35px;
+  width: 25%;
+  font-size: 20px;
+}
+
+button {
+  background-color: #96FBE4;  
+  height: 35px;  
+  width: 8%;
+  font-size: 20px;
+}
+
+th {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+}
+
+td {
+    text-align: center;
+    font-size: 20px;
+}
+
+table {
+    width: 100px;
+    font-family: 'Amatic SC', cursive;
+
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
 }
